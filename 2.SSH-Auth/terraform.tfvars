@@ -7,4 +7,4 @@ id_tag      = "cmtr-sfj054j4"
 
 
 ssh_ec2_key_pair_name = "cmtr-sfj054j4-keypair"
-ec2_name = "cmtr-sfj054j4-ec2"
+ec2_name              = "cmtr-sfj054j4-ec2"
