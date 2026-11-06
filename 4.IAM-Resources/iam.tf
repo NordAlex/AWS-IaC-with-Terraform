@@ -44,9 +44,9 @@ resource "aws_iam_role" "role" {
 }
 resource "aws_iam_instance_profile" "instance" {
   role = aws_iam_role.role.name
-
+  name = var.iam_profile_name
   tags = {
-    Name    = var.iam_role_name
+    Name    = var.iam_profile_name
     Project = var.project_tag
   }
 }
