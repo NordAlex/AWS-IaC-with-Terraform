@@ -42,3 +42,8 @@ variable "vpc_name" {
   description = "VPC name."
   type        = string
 }
+
+variable "vpc_name_filter" {
+  description = "VPC name filter."
+  type        = string
+}
