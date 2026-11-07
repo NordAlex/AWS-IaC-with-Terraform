@@ -12,5 +12,5 @@ private_security_group_name = "cmtr-sfj054j4-private-http-sg"
 private_instance_id = "i-0be038ed12d5219d1"
 public_instance_id  = "i-014311e4f9956a844"
 
-vpc_name = "cmtr-sfj054j4-vpc"
+vpc_name        = "cmtr-sfj054j4-vpc"
 vpc_name_filter = "tag:Name"
