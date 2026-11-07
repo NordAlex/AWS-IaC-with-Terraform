@@ -37,3 +37,8 @@ variable "public_instance_id" {
   description = "Public EC2 instance ID."
   type        = string
 }
+
+variable "vpc_name" {
+  description = "VPC name."
+  type        = string
+}

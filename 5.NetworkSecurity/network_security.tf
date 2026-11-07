@@ -1,7 +1,7 @@
 data "aws_vpc" "network" {
   filter {
     name   = "tag:Name"
-    values = ["cmtr-sfj054j4-vpc"]
+    values = [var.vpc_name]
   }
 }
 
