@@ -42,7 +42,7 @@ resource "aws_security_group" "public_security_group" {
   vpc_id = data.aws_vpc.network.id
 
   tags = {
-    Name    = var.private_security_group_name
+    Name    = var.public_security_group_name
     Project = var.project_tag
   }
 }
@@ -90,7 +90,7 @@ resource "aws_security_group_rule" "private_http_ingress" {
 
 resource "aws_security_group_rule" "private_icmp" {
   type              = "ingress"
-  security_group_id = aws_security_group.public_security_group.id
+  security_group_id = aws_security_group.private_security_group.id
 
   from_port                = -1
   to_port                  = -1
