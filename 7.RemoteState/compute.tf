@@ -12,6 +12,6 @@ resource "aws_instance" "instance" {
 
   tags = {
     Terraform = var.terraform
-    Project   = var.aws_region
+    Project   = var.project
   }
 }
