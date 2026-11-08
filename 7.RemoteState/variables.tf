@@ -10,7 +10,7 @@ variable "project" {
 
 variable "terraform" {
   description = "Terrfaform tag."
-  type        = bool
+  type        = string
 }
 
 variable "state_bucket" {
@@ -20,6 +20,11 @@ variable "state_bucket" {
 
 variable "state_key" {
   description = "S3 key path to the remote state file."
+  type        = string
+}
+
+variable "ami_name" {
+  description = "AMI name."
   type        = string
 }
 
