@@ -19,6 +19,11 @@ data "aws_security_group" "http_inbound_id" {
   name = var.http_instance_secirity_group_name
 }
 
+data "aws_security_group" "lb_http_inbound" {
+  name   = var.lb_http_security_group_name
+  vpc_id = var.vpc_id
+}
+
 data "aws_subnet" "public_a" {
   vpc_id     = var.vpc_id
   cidr_block = "10.0.1.0/24"
@@ -39,8 +44,9 @@ resource "aws_launch_template" "app" {
   }
 
   network_interfaces {
-    device_index          = 0
-    delete_on_termination = true
+    device_index                = 0
+    associate_public_ip_address = true
+    delete_on_termination       = true
 
     security_groups = [
       data.aws_security_group.http_inbound_id.id,
@@ -118,7 +124,7 @@ resource "aws_lb" "app" {
   load_balancer_type = "application"
 
   security_groups = [
-    data.aws_security_group.http_inbound_id.id
+    data.aws_security_group.lb_http_inbound.id
   ]
 
   subnets = [data.aws_subnet.public_a.id, data.aws_subnet.public_b.id]
