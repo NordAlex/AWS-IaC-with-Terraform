@@ -43,6 +43,11 @@ variable "http_instance_secirity_group_name" {
   type        = string
 }
 
+variable "lb_http_security_group_name" {
+  description = "Security group for lb name."
+  type        = string
+}
+
 variable "aws_asg_name" {
   description = "Auto scaling group."
   type        = string
