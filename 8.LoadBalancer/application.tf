@@ -35,7 +35,7 @@ resource "aws_launch_template" "app" {
   instance_type = "t3.micro"
   key_name      = data.aws_key_pair.key_pair.key_name
   iam_instance_profile {
-    name = data.aws_iam_instance_profile.iam_instance.name
+    name = var.iam_instance_name
   }
 
   network_interfaces {
