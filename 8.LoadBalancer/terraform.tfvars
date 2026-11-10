@@ -12,7 +12,7 @@ iam_instance_name = "cmtr-sfj054j4-instance_profile"
 
 ssh_instance_secirity_group_name  = "cmtr-sfj054j4-ec2_sg"
 http_instance_secirity_group_name = "cmtr-sfj054j4-http_sg"
-lb_http_security_group_name = "cmtr-sfj054j4-sglb"
+lb_http_security_group_name       = "cmtr-sfj054j4-sglb"
 
 aws_asg_name       = "cmtr-sfj054j4-asg"
 vpc_id             = "vpc-09a055e237451d3a4"
