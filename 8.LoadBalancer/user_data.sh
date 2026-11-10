@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 dnf update -y
-dnf install -y httpd jq curl
+dnf install -y httpd jq
 
 systemctl enable --now httpd
 
