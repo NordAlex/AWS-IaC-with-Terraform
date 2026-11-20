@@ -1,64 +1,59 @@
-resource "aws_security_group" "ssh" {
+# SSH Security Group
+resource "aws_security_group" "ssh_security_group" {
   name   = var.ssh_security_group_name
   vpc_id = var.vpc_id
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = var.allowed_ip_range
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
-resource "aws_security_group_rule" "ssh_ingress" {
-  type              = "ingress"
-  security_group_id = aws_security_group.ssh.id
-
-  from_port   = 22
-  to_port     = 22
-  protocol    = "tcp"
-  cidr_blocks = var.allowed_ip_range
-}
-
-resource "aws_security_group" "public_http" {
+# Public HTTP Security Group
+resource "aws_security_group" "public_security_group" {
   name   = var.public_security_group_name
   vpc_id = var.vpc_id
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = var.allowed_ip_range
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
-resource "aws_security_group_rule" "public_http_ingress" {
-  type              = "ingress"
-  security_group_id = aws_security_group.public_http.id
-
-  from_port   = 80
-  to_port     = 80
-  protocol    = "tcp"
-  cidr_blocks = var.allowed_ip_range
-}
-
-resource "aws_security_group" "private_http" {
+# Private HTTP Security Group
+resource "aws_security_group" "private_security_group" {
   name   = var.private_security_group_name
   vpc_id = var.vpc_id
-}
 
-resource "aws_security_group_rule" "private_http_ingress" {
-  type              = "ingress"
-  security_group_id = aws_security_group.private_http.id
+  ingress {
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    security_groups = [aws_security_group.public_security_group.id]
+  }
 
-  from_port                = 80
-  to_port                  = 80
-  protocol                 = "tcp"
-  source_security_group_id = aws_security_group.public_http.id
-}
-
-resource "aws_security_group_rule" "public_egress" {
-  type              = "egress"
-  security_group_id = aws_security_group.public_http.id
-
-  from_port   = 0
-  to_port     = 0
-  protocol    = "-1"
-  cidr_blocks = ["0.0.0.0/0"]
-}
-
-resource "aws_security_group_rule" "private_egress" {
-  type              = "egress"
-  security_group_id = aws_security_group.private_http.id
-
-  from_port   = 0
-  to_port     = 0
-  protocol    = "-1"
-  cidr_blocks = ["0.0.0.0/0"]
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
