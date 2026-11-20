@@ -1,7 +1,6 @@
 #!/bin/bash
 set -euxo pipefail
 
-dnf update -y
 dnf install -y httpd jq
 
 systemctl enable --now httpd
