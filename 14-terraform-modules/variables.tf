@@ -70,11 +70,6 @@ variable "public_instance_id" {
   type        = string
 }
 
-variable "vpc_name_filter" {
-  description = "VPC name filter."
-  type        = string
-}
-
 #app
 
 variable "launch_template_name" {
