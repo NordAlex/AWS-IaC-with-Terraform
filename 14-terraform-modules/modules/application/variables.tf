@@ -44,6 +44,6 @@ variable "load_balancer_name" {
 }
 
 variable "subnet_ids" {
-    description = "Subnet ids."
+  description = "Subnet ids."
   type        = list(string)
 }
