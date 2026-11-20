@@ -40,7 +40,7 @@ module "application" {
 
   subnet_ids = module.network.public_subnet_ids
 
-  lb_http_security_group_id       = module.network_security.private_http_security_group_id
+  lb_http_security_group_id       = module.network_security.public_http_security_group_id
   ssh_instance_secirity_group_id  = module.network_security.ssh_security_group_id
-  http_instance_secirity_group_id = module.network_security.public_http_security_group_id
+  http_instance_secirity_group_id = module.network_security.private_http_security_group_id
 }
