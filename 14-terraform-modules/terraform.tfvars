@@ -17,8 +17,6 @@ private_security_group_name = "cmtr-sfj054j4-private-http-sg"
 private_instance_id = "i-014311e4f9956a844"
 public_instance_id  = "i-0be038ed12d5219d1"
 
-vpc_name_filter = "tag:Name"
-
 #app
 launch_template_name = "cmtr-sfj054j4-template"
 ami_name             = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
