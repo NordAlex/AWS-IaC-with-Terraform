@@ -75,7 +75,8 @@ resource "aws_lb_target_group" "app" {
     path                = "/"
     protocol            = "HTTP"
     matcher             = "200"
-    interval            = 30
+    interval            = 10
+    timeout             = 5
     healthy_threshold   = 2
     unhealthy_threshold = 2
   }
