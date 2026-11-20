@@ -19,7 +19,7 @@ resource "aws_launch_template" "app" {
 
   metadata_options {
     http_endpoint = "enabled"
-    http_tokens   = "optional"
+    http_tokens   = "required"
   }
 
   user_data = filebase64("${path.module}/user_data.sh")
