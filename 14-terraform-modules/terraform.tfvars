@@ -8,7 +8,7 @@ public_subnet_cidrs   = ["10.10.1.0/24", "10.10.3.0/24", "10.10.5.0/24"]
 internet_gateway_name = "cmtr-sfj054j4-igw"
 routing_table_name    = "cmtr-sfj054j4-rt"
 
-allowed_ip_range = ["18.153.146.156/32", "194.44.90.61/32"]
+allowed_ip_range = ["18.153.146.156/32", "194.44.90.69/32"]
 
 ssh_security_group_name     = "cmtr-sfj054j4-ssh-sg"
 public_security_group_name  = "cmtr-sfj054j4-public-http-sg"
