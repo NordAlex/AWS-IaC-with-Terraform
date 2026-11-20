@@ -27,7 +27,7 @@ resource "aws_launch_template" "app" {
 
 resource "aws_autoscaling_group" "app" {
   name             = var.aws_asg_name
-  min_size         = 1
+  min_size         = 2
   max_size         = 2
   desired_capacity = 2
 
